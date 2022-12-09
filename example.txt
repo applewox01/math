@@ -1,0 +1,7 @@
+lets begin:
+
+example: how to calculate [any number] * 5
+1. input any number
+2. press 'input_number'. now the number has been added to your very own little array :)
+3. input 5
+4. press 'multiply_readonly'

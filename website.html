@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+<script>
+    let inputs = [];
+
+    function add_history() {
+        //doesn't work yet
+    }
+
+   function multiply_readonly(numero, lista) {
+    if (document.getElementById("theinput").value != "") {
+    if (lista.length > 0) {
+    var answer = [];
+    for (var i = 0; i < lista.length; i++) {
+        console.log("multiplying with array[".concat(i, "] or ").concat(lista[i]));
+        console.log("".concat(lista[i], " * ").concat(numero, " = ").concat(lista[i] * numero));
+        answer.push(lista[i] * numero);
+    }
+    console.log("the multiplication of array numbers ".concat(lista, " is ").concat(answer));
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "the multiplication of array numbers ".concat(lista, " is ").concat(answer);
+    document.getElementById("theinput").value = "";
+    add_history();
+   }
+   else {
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "array is empty, please input values with 'input_number' command";
+}
+}
+else {
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "input empty";  
+}
+}
+function input_number(numero, lista) {
+    lista.push(numero);
+    console.log("input pushed: ".concat(numero, ". array after push: ").concat(lista));
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "input pushed: ".concat(numero, ". array after push: ").concat(lista);
+    document.getElementById("theinput").value = "";
+    add_history();
+}
+function clear_array(lista) {
+    inputs = [];
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "array cleared";   
+    document.getElementById("theinput").value = "";
+    add_history();
+}
+function array_length(lista) {
+    console.log("the length of your array is ".concat(lista.length));
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "the length of your array is ".concat(lista.length);   
+    document.getElementById("theinput").value = "";
+    add_history();
+} 
+</script>
+    </head>
+    <body>
+        <form>
+            <label>input</label>
+            <br>
+            <input type="text" name="input" id="theinput" value="">
+            <br>
+            <input type="reset" value="clear input">
+            <br>
+            <p id="array"></p>
+            <p id="answer"></p>
+            <br>
+            </form>
+            <p>list of commands:</p>
+            <button id="mult" onclick="multiply_readonly(document.getElementById('theinput').value , inputs)">multiplication_readonly</button>
+            <button id="inp" onclick="input_number(document.getElementById('theinput').value , inputs)">input_number</button>
+            <button id="leng" onclick="array_length(inputs)">array_length</button>
+            <button id="clr" onclick="clear_array(document.getElementById('theinput').value , inputs)">clear_array</button>
+            <br>
+            <p>a mathematical calculator made with js, html and typescript, for the sake of scientific research and the betterment of humanity</p>
+            <p>README.txt is helpful</p>
+    </body>
+</html>
