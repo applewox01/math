@@ -1,7 +1,13 @@
 let inputs = [];
 
-function add_history() {
+function add_history(element) {
     //doesn't work yet
+
+    let cloned = document.getElementById("histclone").cloneNode(true);
+    cloned.innerHTML = element;
+    cloned.id += Date.now();
+    document.body.insertBefore(cloned, document.getElementById("history"));
+
 }
 
 function multiply_readonly(numero, lista) {
@@ -17,7 +23,7 @@ console.log("the multiplication of array numbers ".concat(lista, " with ").conca
 document.getElementById("array").innerHTML = inputs;
 document.getElementById("answer").innerHTML = "the multiplication of array numbers ".concat(lista, " with ").concat(numero, " is ").concat(answer);
 document.getElementById("theinput").value = "";
-add_history();
+add_history(("".concat(Date.now(), " array: ").concat(lista, " input: ").concat(numero)));
 }
 else {
 document.getElementById("array").innerHTML = inputs;
@@ -36,7 +42,7 @@ console.log("input pushed: ".concat(numero, ". array after push: ").concat(lista
 document.getElementById("array").innerHTML = inputs;
 document.getElementById("answer").innerHTML = "input pushed: ".concat(numero, ". array after push: ").concat(lista);
 document.getElementById("theinput").value = "";
-add_history();
+add_history(("".concat(Date.now(), " array: ").concat(lista, " input: ").concat(numero)));
 }
 else {
     document.getElementById("array").innerHTML = inputs;
@@ -48,12 +54,12 @@ inputs = [];
 document.getElementById("array").innerHTML = inputs;
 document.getElementById("answer").innerHTML = "array cleared";   
 document.getElementById("theinput").value = "";
-add_history();
+add_history(("".concat(Date.now(), " array cleared")));
 }
 function array_length(lista) {
 console.log("the length of your array is ".concat(lista.length));
 document.getElementById("array").innerHTML = inputs;
 document.getElementById("answer").innerHTML = "the length of your array is ".concat(lista.length);   
 document.getElementById("theinput").value = "";
-add_history();
+add_history(("".concat(Date.now(), " length checked")));
 } 
