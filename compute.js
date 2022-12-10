@@ -30,12 +30,18 @@ document.getElementById("answer").innerHTML = "input empty";
 }
 }
 function input_number(numero, lista) {
+if (document.getElementById("theinput").value != "") {
 lista.push(numero);
 console.log("input pushed: ".concat(numero, ". array after push: ").concat(lista));
 document.getElementById("array").innerHTML = inputs;
 document.getElementById("answer").innerHTML = "input pushed: ".concat(numero, ". array after push: ").concat(lista);
 document.getElementById("theinput").value = "";
 add_history();
+}
+else {
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "input empty";    
+}
 }
 function clear_array(lista) {
 inputs = [];
