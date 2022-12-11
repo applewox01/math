@@ -93,11 +93,18 @@ add_history(("".concat(Date.now(), " array cleared")));
 }
 
 function arrange(lista) {
+    if (lista.length > 0) {
         lista.sort();
         document.getElementById("array").innerHTML = inputs;
         document.getElementById("answer").innerHTML = "arranged";   
         document.getElementById("theinput").value = "";
         add_history(("".concat(Date.now(), " arranged")));
+    }
+    else {
+        document.getElementById("array").innerHTML = inputs;
+        document.getElementById("answer").innerHTML = "list empty";   
+        document.getElementById("theinput").value = "";
+    }
 }
 function array_length(lista) {
 console.log("the length of your array is ".concat(lista.length));
