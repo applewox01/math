@@ -10,6 +10,40 @@ function add_history(element) {
 
 }
 
+function multiply_input() {
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "this command doesn't work yet, sorry";
+    document.getElementById("theinput").value = "";
+    document.getElementById("multint").hidden = true;
+}
+
+function multiply_inputbeta(numero, lista) {
+    if (document.getElementById("theinput").value != "") {
+    if (lista.length > 0) {
+    var answer = [];
+    for (var i = 0; i < lista.length; i++) {
+        console.log("multiplying with array[".concat(i, "] or ").concat(lista[i]));
+        console.log("".concat(lista[i], " * ").concat(numero, " = ").concat(lista[i] * numero));
+        answer.push(lista[i] * numero);
+    }
+    console.log("the multiplication of array numbers ".concat(lista, " with ").concat(numero, " is ").concat(answer));
+    lista = answer;
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "the multiplication of array numbers ".concat(lista, " with ").concat(numero, " is ").concat(answer, " applied to array");
+    document.getElementById("theinput").value = "";
+    add_history(("".concat(Date.now(), " array: ").concat(lista, " input: ").concat(numero)));
+    }
+    else {
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "array is empty, please input values with 'input_number' command";
+    }
+    }
+    else {
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = "input empty";  
+    }
+    }
+
 function multiply_readonly(numero, lista) {
 if (document.getElementById("theinput").value != "") {
 if (lista.length > 0) {
@@ -35,6 +69,7 @@ document.getElementById("array").innerHTML = inputs;
 document.getElementById("answer").innerHTML = "input empty";  
 }
 }
+
 function input_number(numero, lista) {
 if (document.getElementById("theinput").value != "") {
 lista.push(numero);
@@ -55,6 +90,14 @@ document.getElementById("array").innerHTML = inputs;
 document.getElementById("answer").innerHTML = "array cleared";   
 document.getElementById("theinput").value = "";
 add_history(("".concat(Date.now(), " array cleared")));
+}
+
+function arrange(lista) {
+        lista.sort();
+        document.getElementById("array").innerHTML = inputs;
+        document.getElementById("answer").innerHTML = "arranged";   
+        document.getElementById("theinput").value = "";
+        add_history(("".concat(Date.now(), " arranged")));
 }
 function array_length(lista) {
 console.log("the length of your array is ".concat(lista.length));
