@@ -10,14 +10,26 @@ function add_history(element) {
 
 }
 
-function multiply_input() {
-    document.getElementById("array").innerHTML = inputs;
-    document.getElementById("answer").innerHTML = "this command doesn't work yet, sorry";
-    document.getElementById("theinput").value = "";
-    document.getElementById("multint").hidden = true;
+function round_array(lista) {
+    if (lista.length > 0) {
+        var answer = [];
+        for (var i = 0; i < lista.length; i++) {
+            console.log("rounding [".concat(i, "] or ").concat(lista[i]));
+            answer.push(Math.round(lista[i]));
+        }  
+        inputs = answer;
+        document.getElementById("array").innerHTML = inputs;
+        document.getElementById("answer").innerHTML = "rounded";
+        document.getElementById("theinput").value = "";
+        add_history(("".concat(Date.now(), " array: ").concat(lista, " rounded")));
+    }
+    else {
+        document.getElementById("array").innerHTML = inputs;
+        document.getElementById("answer").innerHTML = "array is empty, please input values with 'input_number' command";   
+    }
 }
 
-function multiply_inputbeta(numero, lista) {
+function multiply_input(numero, lista) {
     if (document.getElementById("theinput").value != "") {
     if (lista.length > 0) {
     var answer = [];
@@ -27,7 +39,7 @@ function multiply_inputbeta(numero, lista) {
         answer.push(lista[i] * numero);
     }
     console.log("the multiplication of array numbers ".concat(lista, " with ").concat(numero, " is ").concat(answer));
-    lista = answer;
+    inputs = answer;
     document.getElementById("array").innerHTML = inputs;
     document.getElementById("answer").innerHTML = "the multiplication of array numbers ".concat(lista, " with ").concat(numero, " is ").concat(answer, " applied to array");
     document.getElementById("theinput").value = "";
