@@ -22,8 +22,15 @@ function submit() {
         round_array(inputs);
     } else if (input == "arr" ) {
         arrange(inputs);
+    } else if (input == "log[".concat(Number, "]") ) {
+        log(inputs);
     }
 }
+
+function log() {
+    
+}
+
 
 function round_array(lista) {
     if (lista.length > 0) {
