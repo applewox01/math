@@ -10,6 +10,21 @@ function add_history(element) {
 
 }
 
+function clear_input() {
+    document.getElementById("theinput").value = "";  
+}
+
+function submit() {
+    let input =  document.getElementById("theinput").value;
+    if (input == "len" ) {
+        array_length(inputs);
+    } else if (input == "rou" ) {
+        round_array(inputs);
+    } else if (input == "arr" ) {
+        arrange(inputs);
+    }
+}
+
 function round_array(lista) {
     if (lista.length > 0) {
         var answer = [];
