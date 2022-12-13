@@ -14,23 +14,27 @@ function clear_input() {
     document.getElementById("theinput").value = "";  
 }
 
+function log(input) {
+    let validinput = input.replace("log[","]","");
+    document.getElementById("array").innerHTML = inputs;
+    document.getElementById("answer").innerHTML = validinput;
+    document.getElementById("theinput").value = "";
+}
+
+
 function submit() {
-    let input =  document.getElementById("theinput").value;
+    document.getElementById("answer").innerHTML = "".concat("log[".concat(String, "]"));
+    let input = document.getElementById("theinput").value;
     if (input == "len" ) {
         array_length(inputs);
     } else if (input == "rou" ) {
         round_array(inputs);
     } else if (input == "arr" ) {
         arrange(inputs);
-    } else if (input == "log[".concat(Number, "]") ) {
+    } else if (input == "".concat("log[".concat(String, "]")) ) {
         log(inputs);
     }
 }
-
-function log() {
-    
-}
-
 
 function round_array(lista) {
     if (lista.length > 0) {
